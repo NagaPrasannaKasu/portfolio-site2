@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content=" Naga Prasanna Kasu - DevOps and Cloud Portfolio" />
+  <title>Naga Prasanna Kasu | DevOps & Cloud Portfolio</title>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --panel: #111827;
+      --card: #1f2937;
+      --text: #e5e7eb;
+      --muted: #94a3b8;
+      --accent: #38bdf8;
+      --accent2: #22c55e;
+      --border: rgba(148, 163, 184, 0.2);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(180deg, #020617 0%, #0f172a 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    .container {
+      width: min(1100px, 92%);
+      margin: 0 auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(10px);
+      background: rgba(2, 6, 23, 0.75);
+      border-bottom: 1px solid var(--border);
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0;
+    }
+
+    .logo {
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      color: white;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .nav-links a:hover { color: white; }
+
+    .hero {
+      padding: 5rem 0 4rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.2rem, 5vw, 4rem);
+      line-height: 1.1;
+      margin-bottom: 1rem;
+    }
+
+    .hero .highlight { color: var(--accent); }
+    .hero p {
+      color: var(--muted);
+      font-size: 1.05rem;
+      max-width: 700px;
+      margin-bottom: 1.5rem;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.9rem 1.2rem;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: var(--card);
+      color: white;
+      transition: 0.2s ease;
+    }
+
+    .btn.primary {
+      background: linear-gradient(135deg, var(--accent), #2563eb);
+      border: none;
+    }
+
+    .btn:hover { transform: translateY(-2px); }
+
+    .hero-card {
+      background: rgba(17, 24, 39, 0.85);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 1.5rem;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+    }
+
+    .hero-card h3 { margin-bottom: 0.8rem; }
+    .hero-card ul {
+      list-style: none;
+      color: var(--muted);
+    }
+    .hero-card li { margin-bottom: 0.6rem; }
+
+    section {
+      padding: 3.5rem 0;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .section-subtitle {
+      color: var(--muted);
+      margin-bottom: 1.6rem;
+      max-width: 800px;
+    }
+
+    .grid {
+      display: grid;
+      gap: 1.2rem;
+    }
+
+    .about-grid {
+      grid-template-columns: 1.2fr 1fr;
+    }
+
+    .card {
+      background: rgba(31, 41, 55, 0.85);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 1.3rem;
+    }
+
+    .skills-grid,
+    .projects-grid {
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 1rem;
+    }
+
+    .tag {
+      padding: 0.45rem 0.75rem;
+      background: rgba(56, 189, 248, 0.12);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      color: #bae6fd;
+      border-radius: 999px;
+      font-size: 0.9rem;
+    }
+
+    .project-card h3 { margin-bottom: 0.5rem; }
+    .project-card p { color: var(--muted); margin-bottom: 0.8rem; }
+    .project-meta {
+      color: #cbd5e1;
+      font-size: 0.92rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .project-links a {
+      color: var(--accent);
+      margin-right: 1rem;
+      font-size: 0.95rem;
+    }
+
+    .resume-box {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+    }
+
+    .timeline {
+      list-style: none;
+      color: var(--muted);
+    }
+
+    .timeline li {
+      margin-bottom: 0.8rem;
+      padding-left: 1rem;
+      border-left: 2px solid rgba(56, 189, 248, 0.35);
+    }
+
+    .contact-links a {
+      display: inline-block;
+      margin-right: 1rem;
+      margin-top: 0.6rem;
+      color: var(--accent);
+    }
+
+    footer {
+      padding: 2rem 0 3rem;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    @media (max-width: 800px) {
+      .hero-grid,
+      .about-grid,
+      .resume-box {
+        grid-template-columns: 1fr;
+      }
+
+      nav {
+        flex-direction: column;
+        gap: 0.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <div class="logo">Naga Prasanna KASU</div>
+        <div class="nav-links">
+          <a href="#about">About</a>
+          <a href="#skills">Skills</a>
+          <a href="#projects">Projects</a>
+          <a href="#resume">Resume</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <h1>Cloud & <span class="highlight">DevOps</span> Portfolio</h1>
+          <p>
+            I am Naga Prasanna Kasu, a QA Engineer transitioning into DevOps, with hands-on experience in AWS,
+            Linux, CI/CD, Infrastructure as Code, containers, orchestration, and observability.
+          </p>
+          <div class="buttons">
+            <a class="btn primary" href="#projects">View Projects</a>
+            <a class="btn" href="resume.pdf" target="_blank">Download Resume</a>
+          </div>
+        </div>
+
+        <aside class="hero-card">
+          <h3>Highlights</h3>
+          <ul>
+            <li>6+ years in QA and test-driven delivery</li>
+            <li>AWS cloud projects and hands-on labs</li>
+            <li>CI/CD with Jenkins and GitLab</li>
+            <li>Terraform, Ansible, Docker, Kubernetes</li>
+            <li>Prometheus and Grafana observability</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <h2 class="section-title">About Me</h2>
+        <p class="section-subtitle">
+          I build practical cloud and DevOps projects that show automation, reliability, and deployment skills.
+          My background in QA helps me think in terms of quality, repeatability, and stable delivery pipelines.
+        </p>
+
+        <div class="grid about-grid">
+          <div class="card">
+            <h3>Profile</h3>
+            <p>
+              Focused on DevOps engineering, cloud infrastructure, and automation. I enjoy designing simple,
+              well-structured systems and learning by building real projects.
+            </p>
+          </div>
+          <div class="card">
+            <h3>What I Showcase</h3>
+            <p>
+              AWS networking, static hosting, WordPress on EC2/RDS, cloud resume challenge work, CI/CD pipelines,
+              containerized apps, monitoring dashboards, and IaC examples.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container">
+        <h2 class="section-title">Skills</h2>
+        <p class="section-subtitle">A concise view of the tools and technologies I work with most often.</p>
+
+        <div class="grid skills-grid">
+          <div class="card">
+            <h3>Cloud</h3>
+            <div class="tag-list">
+              <span class="tag">AWS</span>
+              <span class="tag">VPC</span>
+              <span class="tag">EC2</span>
+              <span class="tag">S3</span>
+              <span class="tag">RDS</span>
+              <span class="tag">IAM</span>
+            </div>
+          </div>
+          <div class="card">
+            <h3>DevOps</h3>
+            <div class="tag-list">
+              <span class="tag">Jenkins</span>
+              <span class="tag">GitLab</span>
+              <span class="tag">Terraform</span>
+              <span class="tag">Ansible</span>
+              <span class="tag">Docker</span>
+              <span class="tag">Kubernetes</span>
+            </div>
+          </div>
+          <div class="card">
+            <h3>Observability</h3>
+            <div class="tag-list">
+              <span class="tag">Prometheus</span>
+              <span class="tag">Grafana</span>
+              <span class="tag">Monitoring</span>
+              <span class="tag">Logging</span>
+            </div>
+          </div>
+          <div class="card">
+            <h3>Programming & OS</h3>
+            <div class="tag-list">
+              <span class="tag">Python</span>
+              <span class="tag">Linux</span>
+              <span class="tag">Git</span>
+              <span class="tag">Jira</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <h2 class="section-title">Projects</h2>
+        <p class="section-subtitle">
+          These projects are selected to match DevOps and cloud roles, and each one should include a short summary,
+          technologies used, screenshots, and links to code or deployment.
+        </p>
+
+        <div class="grid projects-grid">
+          <article class="card project-card">
+            <h3>AWS VPC with Private Subnets</h3>
+            <div class="project-meta">Networking | Security | AWS</div>
+            <p>
+              Designed a VPC with public and private subnets, routing, NAT access, and security controls for
+              cloud infrastructure practice.
+            </p>
+            <div class="project-links">
+              <a href="#">GitHub</a>
+              <a href="#">Live Demo</a>
+            </div>
+          </article>
+
+          <article class="card project-card">
+            <h3>AWS Cloud Resume Challenge</h3>
+            <div class="project-meta">S3 | CloudFront | Route 53 | Lambda</div>
+            <p>
+              Built and hosted a serverless resume website with cloud-native services and versioned updates.
+            </p>
+            <div class="project-links">
+              <a href="#">GitHub</a>
+              <a href="#">Live Demo</a>
+            </div>
+          </article>
+
+          <article class="card project-card">
+            <h3>Static Website on S3</h3>
+            <div class="project-meta">S3 | Hosting | IAM</div>
+            <p>
+              Hosted a static website on Amazon S3 and configured permissions and public access settings.
+            </p>
+            <div class="project-links">
+              <a href="#">GitHub</a>
+              <a href="#">Live Demo</a>
+            </div>
+          </article>
+
+          <article class="card project-card">
+            <h3>WordPress on EC2 and RDS</h3>
+            <div class="project-meta">EC2 | RDS | AWS</div>
+            <p>
+              Deployed WordPress on AWS using EC2 for compute and RDS for managed database storage.
+            </p>
+            <div class="project-links">
+              <a href="#">GitHub</a>
+              <a href="#">Live Demo</a>
+            </div>
+          </article>
+
+          <article class="card project-card">
+            <h3>CI/CD Pipeline</h3>
+            <div class="project-meta">Jenkins | GitLab | Automation</div>
+            <p>
+              Created a pipeline to build, test, and deploy code automatically with integration checks.
+            </p>
+            <div class="project-links">
+              <a href="#">GitHub</a>
+              <a href="#">Pipeline</a>
+            </div>
+          </article>
+
+          <article class="card project-card">
+            <h3>Monitoring Dashboard</h3>
+            <div class="project-meta">Prometheus | Grafana | Alerts</div>
+            <p>
+              Implemented monitoring and dashboards for system visibility, metrics, and alerting workflows.
+            </p>
+            <div class="project-links">
+              <a href="#">GitHub</a>
+              <a href="#">Screenshots</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="resume">
+      <div class="container">
+        <h2 class="section-title">Resume</h2>
+        <p class="section-subtitle">
+          Use this section to give recruiters a quick overview of your background and make the PDF easy to find.
+        </p>
+
+        <div class="grid resume-box">
+          <div class="card">
+            <h3>Summary</h3>
+            <p>
+              QA Engineer with experience in test execution, CI/CD awareness, cloud projects, and automation tools,
+              now transitioning into DevOps and cloud engineering.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Experience Snapshot</h3>
+            <ul class="timeline">
+              <li>6+ years in QA and quality-focused delivery.</li>
+              <li>Hands-on work with AWS, Linux, Jenkins, GitLab, Ansible, Terraform.</li>
+              <li>Exposure to Docker, Kubernetes, Prometheus, and Grafana.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <h2 class="section-title">Contact</h2>
+        <p class="section-subtitle">
+          Add your real links here so recruiters can reach you quickly.
+        </p>
+
+        <div class="card">
+          <p>Email: your.email@example.com</p>
+          <p class="contact-links">
+            <a href="https://github.com/" target="_blank">GitHub</a>
+            <a href="https://www.linkedin.com/" target="_blank">LinkedIn</a>
+            <a href="mailto:your.email@example.com">Email Me</a>
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      © 2026 Naga Prasanna Kasu. Built for DevOps and Cloud portfolio showcasing.
+    </div>
+  </footer>
+</body>
+</html>
