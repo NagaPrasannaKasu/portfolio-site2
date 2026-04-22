@@ -12,12 +12,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4    
-    - name: Build the Docker image
-      run: |
-          docker push NagaPrasannaKasu/portfolio-site2
-
-          
+    - uses: actions/checkout@v4                 
     - name: Build and Push Docker Imgae 
       uses: mr-smithers-excellent/docker-build-push@v6
       with:
